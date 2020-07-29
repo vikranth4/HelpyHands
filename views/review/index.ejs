@@ -1,0 +1,85 @@
+<%- include("../header") %>
+
+ <h1 class="text-center display-4" style="margin-top:70px">Review Page</h1>
+	
+		<div class="container" style="display:block">
+			<% if(error && error.length>0){  %>
+			<div class="alert alert-danger" role="alert">
+				<%= error %>
+			</div>
+			<% } %> 
+			<% if(success && success.length>0){  %>
+			<div class="alert alert-success" role="alert">
+				<%= success %>
+				<% } %>
+			</div>
+		</div>	
+<div class="container border shadow p-3 mb-5 bg-white rounded">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="">
+                <div class="">
+                    <% if (reviews.rating === 0 || !reviews.rating) { %>
+                    <h5>
+                        <em>No reviews yet.</em>
+                    </h5>
+                    <% } else { %>
+                    <p>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star <% if (reviews.rating > 1.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (reviews.rating > 2.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (reviews.rating > 3.5) { %> checked <% } %>"></span>
+                        <span class="fa fa-star <% if (reviews.rating > 4.5) { %> checked <% } %>"></span>
+                        <em>(total reviews: <%= reviews.length %>)</em>
+                    </p>
+					  <p>
+                        Current rating: <strong><%= reviews.rating %></strong>
+                    </p>
+                    <p><h4>Customer Reviews:</h4></p>
+                    <hr class="mt-0">
+                    <%reviews.forEach(function(review){ %>
+                    <div class="row">
+						<div class="col-md-5 align-self-center">
+                            <p style="text-align: justify; word-wrap: break-word;">
+                                <%= review.text %>
+                            </p>
+						</div>
+                        <div class="col-md-3">
+                            <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %><%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
+                            <div>Review by: <strong><%= review.author.username %></strong></div>
+                            <span><em><%= review.updatedAt.toDateString() %></em></span>
+                        </div>
+                        
+                    </div>
+				<div class="row justify-content-md-center">
+                     <div class="col-2 col-sm-2 col-md-1">
+						 <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
+                            
+							<a class="btn btn-sm btn-warning mt-2"
+                               href="/reviews/<%=review._id%>/edit">Edit</a>	
+					</div>
+					<div class="col-2 col-sm-2 col-md-1 mt-2">
+                            <form id="delete-form" action="/reviews/<%=review._id %>?_method=DELETE" method="POST">
+                                <input type="submit" class="btn btn-sm btn-danger" value="Delete">
+                            </form>
+                            <% } %>
+                        </div>
+                    </div>
+                    <hr>
+                    <% }); %>
+                    <% } %>
+                    <div>
+                        <a class="btn btn-primary" href="/reviews/new">
+                            Write a New Review</a>
+                    </div>
+                    <div style="margin-top: 10px;">
+                        <a class="btn btn-default" href="/"><i class="fa fa-arrow-left"></i> Go back</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Review section-->
+</div>
+
+<%- include("../footer") %>

@@ -1,0 +1,197 @@
+
+<html>
+	<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<title>HelpyHands</title>
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+		
+		<link rel="stylesheet" href="/stylesheets/home.css">		
+	</head>	
+
+<body>	
+	
+<nav id="mainNavbar" class="navbar navbar-dark navbar-expand-md fixed-top ">
+    <div class="container">
+		<a href="#" class="navbar-brand">
+			<img src="../images/logo.png" width="40" height="40" alt="" >
+		</a>
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navLinks" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-end" id="navLinks">
+            <ul class="navbar-nav">
+			    <% if(!currentUser){ %>
+				<li class="nav-item">
+                	<a href="/reviews" class="nav-link mr-5">Rate Us</a>
+            	</li>
+				<li class="nav-item">
+                	<a href="/login" class="nav-link mr-5">LogIn</a>
+            	</li>
+               	<li class="nav-item">
+                	<a href="/register" class="nav-link">SignUp</a>
+            	</li>
+				<% } else { %>
+				<li class="nav-item">
+					<a  class="nav-link mr-5" href="/reviews">Rate Us</a>
+				</li>
+                <li class="nav-item">
+					<a  class="nav-link " href="/logout">Logout</a>
+				</li>
+				<% } %>
+            </ul>
+        </div>
+	</div>
+</nav>
+	
+	<ul class="slideshow">
+		<li></li>
+		<li></li>
+	</ul>	
+	
+<div class="jumbo jumbotron jumbotron-fluid" >
+	<div class="container text-center">
+		<h1 class="display-4 mb-4 jumbo1">Helpy Hands</h1>
+    	<h2 class="mb-3 jumbo2">YOU SELECT WE COLLECT</h2>
+		<p class="lead jumbo3">Now in Puttur</p>
+  	</div>
+</div>
+	
+	
+<div class="container">
+	<h1 class="text-left mb-4 display-5">
+		Services we provide:
+	</h1>
+    <div class="row text-center justify-content-around">
+     	<div id="service" class="col-4 col-lg-2 col-sm-6 col-md-4 mb-3 mb-sm-5">
+        	<div class="shadow p-3 bg-white rounded bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+				<img class="rounded-circle card-img-top"  src="../images/food.png"  alt="...">
+			</div>
+        <h2>Food Delivery</h2>
+    	</div>
+		<div id="service" class="col-4 col-lg-2 col-sm-6 col-md-4 mb-3 mb-sm-5">
+        	<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+				<img class="rounded-circle card-img-top"  src="../images/groceries.png"  alt="...">
+		 	</div>
+        	<h2>Groceries</h2>
+    	</div>
+		<div id="service" class="col-4 col-lg-2 col-sm-6 col-md-4 mb-3 mb-sm-5">
+        	<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+		    	<img class="rounded-circle card-img-top"  src="../images/veg.png"  alt="...">
+		 	</div>
+        	<h2>Fruits and Vegetables</h2>
+     	</div>
+		<div class="col-4 col-lg-2 col-sm-6 col-md-4 mb-3 mb-sm-5">
+        	<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+		   		<img class="rounded-circle card-img-top"  src="../images/fish.png"  alt="...">
+		 	</div>
+        	<h2>Fish and Meat</h2>
+    	 </div>
+		 <div class="col-4 col-lg-2 col-sm-6 col-md-4 mb-3 mb-sm-5">
+         	<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+		    	<img class="rounded-circle card-img-top"  src="../images/meds.png"  alt="...">
+		 	</div>
+        	<h2>Medicines</h2>
+    	 </div>
+		 <div class="col-4 col-lg-2 col-sm-6 col-md-4 mb-3 mb-sm-5">
+         	<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+		    	<img class="rounded-circle card-img-top"  src="../images/bill.png"  alt="...">
+		 	</div>
+        	<h2>Bill Payments</h2>
+    	 </div>
+		<div class="row justify-content-center">
+			<div class="col-4 col-lg-2 col-sm-6 col-md-4 mb-3 mb-sm-5">
+        		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+		   			<img class="rounded-circle card-img-top"  src="../images/pick.png"  alt="...">
+		 		</div>
+        		<h2>Pick n Drop</h2>
+    		</div>	
+			<div class="col-4 col-sm-6 col-md-4 col-lg-2 mb-3 mb-sm-5">
+        		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+		   			<img class="rounded-circle card-img-top"  src="../images/bigDelivery.png"  alt="...">
+		 		</div>
+        		<h2>Big Deliveries</h2>		
+     		</div>
+		</div>
+	</div>
+		<h1 class="text-left mb-4 display-5 ml-4 ml-sm-0">
+			Why HelpyHands?
+		</h1>
+		<div class="row text-center justify-content-around mb-4">
+			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5">
+				<img class="img-fluid" src="../images/fuel.png">
+			</div>
+			<div class="col-7 col-md-3 align-self-start">
+				<h3>
+					Saves Fuel
+				</h3>
+				<p class="lead mb-4">
+					Dont be cruel.. conserve your fuel..
+				</p>
+			</div>
+			<div class="col-md-1">	
+			</div>
+			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5">
+				<img class="img-fluid" src="../images/earth.png">
+			</div>
+			<div class="col-7 col-md-3 align-self-start">
+				<h3>
+					Saves Earth
+				</h3>
+				<p class="lead">
+					Stay home and Stay safe
+				</p>
+			</div>
+			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5">
+				<img class="img-fluid rounded-circle" src="../images/money1.jpg">
+			</div>
+			<div class="col-7 col-md-3 align-self-start">
+				<h3>
+					Saves Money
+				</h3>
+				<p class="lead">
+					Affordable delivery charges!!
+				</p>
+			</div>
+			<div class="col-md-1">
+				
+			</div>
+			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5">
+				<img class="img-fluid  rounded-circle" src="../images/time.jpg">
+			</div>
+			<div class="col-7 col-md-3 align-self-start">
+				<h3>
+					Saves Time
+				</h3>
+				<p class="lead">
+					Get things delivered in short amount of time
+				</p>
+			</div>	
+	</div>	
+</div>
+	
+
+	
+
+
+<footer class="row footer container-fluid mr-0 ml-0">
+	<div class="col-12 col-md-8 mb-1">
+		<h5 class="mb-0">
+			About
+		</h5>
+		<p id="about" class="lead ml-3 mt-0">
+			Get anything delivered at your doorsteps
+		</p>
+	</div>
+	
+	<div class="col-10 col-md-4">
+		<p><span class="mr-5">Contact:  +91 91488 37191</span>
+		</p>
+		<p>follow us<a class="ml-1 mr-1 mr-sm-3" href="https://instagram.com/helpy__hands?igshid=kmmjmn7dtq0g">
+			<img src="../images/instagram.png" width="40" height="40" alt="" ></a>
+		</p>
+	</div>	
+</footer>	
+	
+		
+<%- include("footer") %>
