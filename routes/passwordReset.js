@@ -5,7 +5,22 @@ var User = require("../models/users");
 var async = require("async");
 var nodemailer = require("nodemailer");
 var crypto = require("crypto");
+var api_key = '66eca05c73112a91a153662ad092043a-07e45e2a-c718f6af';
+var domain = 'sandboxd77be97f82c6438c86c2e4f01108f279.mailgun.org';
+var mailgun = require('mailgun-js')({ apiKey: api_key, domain: domain });
 
+
+
+var data = {
+    from: 'Excited User <me@samples.mailgun.org>',
+    to: 'serobnic@mail.ru',
+    subject: 'Hello',
+    text: 'Testing some Mailgun awesomeness!'
+};
+
+mailgun.messages().send(data, function (error, body) {
+    console.log(body);
+});
 
 
 //FORGOT PASSWORD
@@ -39,23 +54,17 @@ router.post('/forgot', function (req, res, next) {
             });
         },
         function (token, user, done) {
-            var smtpTransport = nodemailer.createTransport({
-                service: 'Gmail',
-                auth: {
-                    user: 'helpyhands2020@gmail.com',
-                    pass: 'thesleepunder'
-                }
-            });
-            var mailOptions = {
+            var data = {
+                from: 'HelpyHands <helpyhands2020@gmail.com>',
                 to: user.email,
-                from: 'helpyhands2020@gmail.com',
                 subject: 'HelpyHands Password Reset',
                 text: 'You are receiving this because you (or someone else) have requested the reset of the password for your account.\n\n' +
                     'Please click on the following link, or paste this into your browser to complete the process:\n\n' +
                     'http://' + req.headers.host + '/reset/' + token + '\n\n' +
                     'If you did not request this, please ignore this email and your password will remain unchanged.\n'
             };
-            smtpTransport.sendMail(mailOptions, function (err) {
+
+            mailgun.messages().send(data, function (err) {
                 console.log('mail sent');
                 req.flash('success', 'An e-mail has been sent to ' + user.email + ' with further instructions.');
                 done(err, 'done');
@@ -102,23 +111,17 @@ router.post('/reset/:token', function (req, res) {
                 }
             });
         },
+
         function (user, done) {
-            var smtpTransport = nodemailer.createTransport({
-                service: 'Gmail',
-                auth: {
-                    user: 'helpyhands2020@gmail.com',
-                    pass: 'thesleepunder'
-                }
-            });
-            var mailOptions = {
+            var data = {
+                from: 'HelpyHands <helpyhands2020@gmail.com>',
                 to: user.email,
-                from: 'helpyhands2020@gmail.com',
                 subject: 'Your password has been changed',
                 text: 'Hello,\n\n' +
                     'This is a confirmation that the password for your account ' + user.email + ' has just been changed.\n ' +
                     'Thank you for using HelpyHands'
             };
-            smtpTransport.sendMail(mailOptions, function (err) {
+            mailgun.messages().send(data, function (err) {
                 req.flash('success', 'Success! Your password has been changed.');
                 done(err);
             });

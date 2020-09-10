@@ -4,23 +4,48 @@ html {
 }
 
 body {
-    font-family: Gilroy, sans-serif;
+    font-family: Noto Sans SC, sans-serif;
     padding-top: 2rem;
     padding-bottom: 3rem;
     color: #171e10;
     background: #2980B9; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    overflow-x: hidden;
 }
 
-
-
-html, body {
-    min-height: 100%;
+#loading {
+    padding: 0;
+    margin: 0;
+    top: 0;
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #fff url('../images/preloader.gif') no-repeat center center;
+    z-index: 99999;
 }
 
-#mainNavbar {
+.navback li a {
+    background: linear-gradient(to right, #121212, #888888, #121212);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    border-style: outset;
+    border-radius: 15px;
+}
+
+    .navback li a:hover {
+        background: linear-gradient(to right, #6DD5FA, #2980B9);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        border-color: steelblue;
+    }
+
+.scrolled {
     background-color: rgb(23, 30, 48);
+    opacity: 0;
+    animation: navDown .5s forwards;
+    border-style: none;
+    border-radius: 0;
 }
 
 .jumbo {
@@ -28,19 +53,102 @@ html, body {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    transform: translateY(-2rem);
 }
 
     .jumbo h1 {
         font-weight: 520;
+        background: linear-gradient(to right, #121212, #888888, #121212);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
     }
+/*=================animations===============================*/
+.brand {
+    opacity: 1;
+    animation: glow 5s infinite;
+    animation-delay: 0.7s;
+}
 
 .jumbo1 {
     opacity: 0;
     animation: fadeDown 0.5s forwards;
-    animation-delay: 0.2s
+    animation-delay: 0.9s
+}
+
+.jumbo2 {
+    opacity: 0;
+    animation: grow 0.7s forwards;
+    background: linear-gradient(to right, #121212, #888888, #121212);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.jumbo3 {
+    opacity: 0;
+    animation: fadeUp 0.5s forwards;
+    animation-delay: 1s;
+    background: linear-gradient(to right, #121212, #888888, #121212);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.service {
+    opacity: 0;
+    animation: grow 0.7s forwards;
+    animation-delay: 1.3s;
+    background: linear-gradient(to right, #121212, #888888, #121212);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.services {
+    opacity: 0;
+    animation: grows 2s forwards ease-in-out;
+    animation-delay: 2s;
+}
+
+    .services h2 {
+        text-align: center;
+        font-weight: 100;
+        font-size: 1.5rem;
+    }
+
+/*swiper*/
+
+.swiper-container-3d .swiper-cube-shadow, .swiper-container-3d .swiper-slide, .swiper-container-3d .swiper-slide-shadow-bottom, .swiper-container-3d .swiper-slide-shadow-left, .swiper-container-3d .swiper-slide-shadow-right, .swiper-container-3d .swiper-slide-shadow-top, .swiper-container-3d .swiper-wrapper {
+    background-image: none;
+    background-color: transparent;
+}
+
+.swiper-container {
+    width: 100%;
+}
+
+.swiper-slide {
+    background-position: center;
+    background-size: contain;
+    width: 220px;
+    height: 100%;
+}
+
+.swiper-wrapper {
+    height: auto;
+    width: 0;
 }
 
 
+
+/*=========================================================*/
+
+.whys {
+    background: linear-gradient(to right, #121212, #888888, #121212);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+/*===================================================*/
 #flash {
     display: inline;
     padding: 0;
@@ -57,10 +165,6 @@ html, body {
     font-weight: 100;
 }
 
-.footer #about {
-    font-size: 1rem;
-    font-weight: 100;
-}
 
 
 .slideshow {
@@ -99,19 +203,104 @@ html, body {
             animation-delay: 10s;
         }
 
-
-
-.footer {
-    background-color: rgb(23, 30, 48);
-    position: absolute;
-    color: white;
+/*===================================================*/
+.service1 {
+    animation: glow1 40s linear infinite;
 }
 
-    .footer p {
-        padding: 0;
-        margin: 0;
+.service2 {
+    animation: glow2 40s linear infinite;
+}
+
+.service3 {
+    animation: glow3 40s linear infinite;
+}
+
+.service4 {
+    animation: glow4 40s linear infinite;
+}
+
+.service5 {
+    animation: glow5 40s linear infinite;
+}
+
+.service6 {
+    animation: glow6 40s linear infinite;
+}
+
+.service7 {
+    animation: glow7 40s linear infinite;
+}
+
+.service8 {
+    animation: glow8 40s linear infinite;
+}
+
+/*=======================================================*/
+
+.footer {
+    padding-top: 3.1rem;
+    font-family: 'Source Sans Pro', sans-serif;
+    background-color: #121212;
+    color: #fff;
+    text-align: center;
+    position: relative;
+}
+
+.back-to-top {
+    width: 5rem;
+    height: 5rem;
+    background-color: #121212;
+    position: absolute;
+    top: -2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+    .back-to-top i {
+        display: block;
+        color: #fff;
+        font-size: 1.5rem;
+        padding: 1rem;
+        padding-left: 1.1rem;
+        animation: up 2s infinite;
     }
 
+.footer-content {
+    overflow: hidden;
+}
+
+    .footer-content h4 {
+        font-weight: 100;
+        letter-spacing: 3px;
+        margin-bottom: 1rem;
+    }
+
+
+.footer-content-about p {
+    line-height: 2;
+}
+
+.social-media {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+    .social-media i {
+        font-size: 1.5rem;
+        color: #fff;
+        padding: .2rem .5rem;
+        opacity: 0.5;
+        transition: color .5s;
+    }
+
+        .social-media i:hover,
+        .social-media i:focus {
+            color: steelblue;
+        }
+/*=====mobile only===========*/
 @media(max-width:576px) {
     .col-4 h2 {
         font-size: 1rem;
@@ -122,8 +311,33 @@ html, body {
         font-size: 1.2rem;
         font-weight: bold;
     }
-}
 
+    .example::-webkit-scrollbar {
+        display: none;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+
+    .jumbo h1 {
+        font-size: 3.25rem;
+        margin-top: 2.5rem;
+    }
+
+    #mainNavbar {
+        background-color: rgb(23, 30, 48);
+        border-style: none;
+        border-radius: 0;
+        animation: navDown .5s forwards;
+    }
+
+    .moveup {
+        transform: translateY(-1.7rem);
+        margin-top: 0;
+    }
+}
+/*===================================================================*/
 @media(max-width:992px) {
     .lead {
         font-size: 1.1rem;
@@ -131,7 +345,8 @@ html, body {
     }
 }
 
-/*Animation*/
+/*===========Animation==========================*/
+
 
 @keyframes imageAnimation {
     0% {
@@ -153,13 +368,253 @@ html, body {
     }
 }
 
-@keyframes fadeDown {
+@keyframes navDown {
     0% {
-        transform: translateY(4rem);
+        transform: translateY(-2rem);
     }
 
     100% {
         opacity: 1;
         transform: translateY(0);
     }
+}
+
+@keyframes fadeDown {
+    0% {
+        transform: translateY(4rem);
+    }
+
+    80% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes grow {
+    0% {
+        opacity: 1;
+        transform: scale(2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes grows {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+@keyframes glow {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/*=============Service animations=======================*/
+@keyframes glow1 {
+    0% {
+        transform: scale(1);
+    }
+
+    5% {
+        transform: scale(1.2);
+    }
+
+    10% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow2 {
+    0%,10% {
+        transform: scale(1);
+    }
+
+    15% {
+        transform: scale(1.1);
+    }
+
+    20% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow3 {
+    0%,20% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    30% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow4 {
+    0%,30% {
+        transform: scale(1);
+    }
+
+    35% {
+        transform: scale(1.1);
+    }
+
+    40% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow5 {
+    0%,40% {
+        transform: scale(1);
+    }
+
+    45% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow6 {
+    0%,50% {
+        transform: scale(1);
+    }
+
+    55% {
+        transform: scale(1.1);
+    }
+
+    60% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow7 {
+    0%,60% {
+        transform: scale(1);
+    }
+
+    65% {
+        transform: scale(1.1);
+    }
+
+    70% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow8 {
+    0%,70% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+
+    80% {
+        transform: scale(1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/*===============================================*/
+@keyframes fadeUp {
+    0% {
+        transform: translateY(-4rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes up {
+    0% {
+        opacity: 0
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(-1.5rem);
+    }
+}
+/*=======================================================*/
+:root {
+    --main-font: 'Source Sans Pro', sans-serif;
+    --secondary-font: 'Herr Von Muellerhoff', cursive;
+    --body-font: 'Cabin', sans-serif;
+    --main-font-color-dark: #252525;
+    --secondary-font-color: #c59d5f;
+    --body-font-color: #515151;
 }

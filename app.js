@@ -7,13 +7,13 @@ var express = require("express"),
 	LocalStrategy = require("passport-local"),
 	User = require("./models/users"),
 	methodOverride = require("method-override"),
-	flash = require("connect-flash");
-
+	flash = require("connect-flash"),
+	compression = require("compression");
 
 var reviewRoutes = require("./routes/review");
 var passwordReset = require("./routes/passwordReset");
 
-
+app.use(compression());
 mongoose.connect("mongodb://localhost/helpy_hands", {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
@@ -45,6 +45,22 @@ app.use(function (req, res, next) {
 	res.locals.currentUser = req.user;
 	res.locals.error = req.flash("error");
 	res.locals.success = req.flash("success");
+	next();
+});
+
+app.use(express.static(__dirname + '/public/images', {
+	maxAge: 86400000,
+	setHeaders: function (res, path) {
+		res.setHeader("Expires", new Date(Date.now() + 2592000000 * 30).toUTCString());
+	}
+}))
+
+app.get('/*', function (req, res, next) {
+
+	if (req.url.indexOf("/images/") === 0 || req.url.indexOf("/stylesheets/") === 0) {
+		res.setHeader("Cache-Control", "public, max-age=2592000");
+		res.setHeader("Expires", new Date(Date.now() + 2592000000).toUTCString());
+	}
 	next();
 });
 //============================================================================
@@ -86,7 +102,7 @@ app.get("/login", function (req, res) {
 app.post("/login", function (req, res, next) {
 	passport.authenticate("local",
 		{
-			successRedirect: "/",
+			successRedirect: "/reviews",
 			failureRedirect: "/login",
 			failureFlash: true,
 			successFlash: "Welcome to HelpyHands, " + req.body.username + "!"

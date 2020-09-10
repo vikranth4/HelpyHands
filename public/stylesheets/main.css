@@ -1,74 +1,49 @@
+
 body {
+    font-family: Noto Sans SC, sans-serif;
     background: #2980B9; /* fallback for old browsers */
     background: -webkit-linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* Chrome 10-25, Safari 5.1-6 */
     background: linear-gradient(to right, #FFFFFF, #6DD5FA, #2980B9); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     font-family: Gilroy, sans-serif;
     color: #0f4c75;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .row {
     z-index: 1;
 }
 
-.slideshow {
-    width: 100%;
-    z-index: 0;
-    list-style: none;
-    margin: 0 0;
-    padding: 0 0;
+
+.loginbox h1 {
+    font-size: 40px;
+    font-weight: 100;
+    border-bottom: 3px solid #0f4c75;
+    padding-top: 13px;
+    padding-bottom: 8px;
 }
 
-    .slideshow li {
-        z-index: -1;
-        position: fixed;
-        width: 100%;
-        height: 100%;
-        left: 0;
-        top: 0;
-        z-index: 0;
-        background-position: center center;
-        background-attachment: fixed;
-        background-repeat: no-repeat;
-        opacity: 0;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;
-        animation: imageAnimation 20s linear infinite;
-    }
-
-
-        .slideshow li:nth-child(1) {
-            background-image: url(../images/HelpyHand.jpg);
-            animation-delay: 0s;
-        }
-
-        .slideshow li:nth-child(2) {
-            background-image: url(../images/HelpyHandBlck.jpg);
-            animation-delay: 10s;
-        }
-
-@keyframes imageAnimation {
-    0% {
-        opacity: 0;
-        animation-timing-function: ease-in;
-    }
-
-    25% {
-        opacity: 0.03;
-        animation-timing-function: ease-out;
-    }
-
-    50% {
-        opacity: 0.03;
-    }
-
-    75% {
-        opacity: 0
-    }
+.textBox {
+    border: none;
+    border-bottom: 1px solid #0f4c75;
+    outline: none;
+    background: none;
+    width: 80%;
 }
 
+.loginButton {
+    width: 90%;
+}
+
+
+
+
+
+@media(max-width:576px) {
+
+    .example::-webkit-scrollbar {
+        display: none;
+    }
+}
 
 .checked {
     color: orange;
@@ -76,4 +51,22 @@ body {
 
 .container .shadow {
     background-color: steelblue;
+}
+
+.background {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background-image: url(../images/HelpyHand.jpg);
+    background-repeat: no-repeat;
+    z-index: -1;
+    background-position: center center;
+    background-attachment: fixed;
+    opacity: 0.03;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
