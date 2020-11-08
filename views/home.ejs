@@ -96,16 +96,8 @@
 	
 <div class="swiper-container services">
 	<div class="swiper-wrapper">
-    	<div id="back" class="swiper-slide">
-			<div id="service" class="">
-        		<div class="shadow p-3 bg-white rounded bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
-				<img class="rounded-circle card-img-top"  src="../images/food.png"  alt="...">
-				</div>
-        	<h2>Food Delivery</h2>
-			</div>
-      	</div>
 		<div class="swiper-slide">
-			<div id="service" class="">
+			<div id="service2" class="" data-toggle="modal" data-target="#gros">
         		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
 					<img class="rounded-circle card-img-top"  src="../images/groceries.png"  alt="...">
 		 		</div>
@@ -113,119 +105,223 @@
     		</div>	
 		</div>
 		<div class="swiper-slide">
-			<div id="service" class="">
+			<div id="service3" class="" data-toggle="modal" data-target="#veg">
         		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
 		    		<img class="rounded-circle card-img-top"  src="../images/veg.png"  alt="...">
 		 		</div>
         		<h2>Fruits and Vegetables</h2>
      		</div>	
 		</div>
+		<div id="back" class="swiper-slide" data-toggle="modal" data-target="#meat">
+			<div id="service1" class="">
+        		<div class="shadow p-3 bg-white rounded bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
+				<img class="rounded-circle card-img-top"  src="../images/fish.png"  alt="...">
+				</div>
+        	<h2>Meat</h2>
+			</div>
+      	</div>
 		<div class="swiper-slide">
-			<div class="">
+			<div class="" data-toggle="modal" data-target="#fish">
         		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
 		   			<img class="rounded-circle card-img-top"  src="../images/fish.png"  alt="...">
 		 		</div>
-        		<h2>Fish and Meat</h2>
+        		<h2>Fish</h2>
     	 	</div>	
 		</div>
-		<div class="swiper-slide">
-			<div class="">
-         		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
-		    		<img class="rounded-circle card-img-top"  src="../images/meds.png"  alt="...">
-		 		</div>
-        		<h2>Medicines</h2>
-    	 	</div>	
-		</div>
-		<div class="swiper-slide">
-			<div class="">
-         		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
-		    		<img class="rounded-circle card-img-top"  src="../images/bill.png"  alt="...">
-		 		</div>
-        		<h2>Bill Payments</h2>
-    	 	</div>	
-		</div>
-		<div class="swiper-slide">
-			<div class="">
-        		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
-		   			<img class="rounded-circle card-img-top"  src="../images/pick.png"  alt="...">
-		 		</div>
-        		<h2>Pick n Drop</h2>
-    		</div>	
-		</div>
-		<div class="swiper-slide">
-			<div class="">
-        		<div class="shadow p-3 bg-white bd-placeholder-img rounded-circle mb-2" focusable="false" role="img" >
-		   			<img class="rounded-circle card-img-top"  src="../images/bigDelivery.png"  alt="...">
-		 		</div>
-        		<h2>Big Deliveries</h2>		
-     		</div>	
-		</div>	
     </div>
 
 </div>
+</div>
 
+<%var count1=0%>
+<% allSeller.forEach(function(eachUser) { %>	
+	<% if(eachUser.category=="meat"){ %>
+	<%count1=count1+1%>	
+	<%}%>
+<%});%>
 	
-		<h1 class="text-left mb-4 display-5 ml-4 ml-sm-0 whys">
-			Why HelpyHands?
-		</h1>
-		<div class="row text-center justify-content-around mb-4">
-			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5 fuel">
-				<img class="img-fluid" src="../images/fuel.png">
-			</div>
-			<div class="col-7 col-md-3 align-self-start fuel">
-				<h3>
-					Saves Fuel
-				</h3>
-				<p class="lead mb-4">
-					Dont be cruel.. conserve your fuel..
-				</p>
-			</div>
-			<div class="col-md-1">	
-			</div>
-			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5 earth">
-				<img class="img-fluid" src="../images/earth.png">
-			</div>
-			<div class="col-7 col-md-3 align-self-start earth">
-				<h3>
-					Saves Earth
-				</h3>
-				<p class="lead">
-					Stay home and Stay safe
-				</p>
-			</div>
-			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5 money">
-				<img class="img-fluid rounded-circle" src="../images/money1.jpg">
-			</div>
-			<div class="col-7 col-md-3 align-self-start money">
-				<h3>
-					Saves Money
-				</h3>
-				<p class="lead">
-					Affordable delivery charges!!
-				</p>
-			</div>
-			<div class="col-md-1">
-				
-			</div>
-			<div class="ml-1 ml-sm-0 mb-5 mb-sm-0 col-4 col-md-2 mb-sm-5 time">
-				<img class="img-fluid  rounded-circle" src="../images/time.jpg">
-			</div>
-			<div class="col-7 col-md-3 align-self-start time">
-				<h3>
-					Saves Time
-				</h3>
-				<p class="lead">
-					Get things delivered in short amount of time
-				</p>
-			</div>	
+<div id="meat" class="modal fade" role="dialog">
+	
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title">Meat Sellers: <%=count1%> </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Sellers List:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+						<% allSeller.forEach(function(eachUser) { %>	
+							<% if(eachUser.category=="meat"){ %>
+						<tr>
+							<td ><span class="badge"><i class="fas fa-user"></i></span> <a href="/seller/<%= eachUser._id %>"><%= eachUser.username %></a></td>
+						</tr>
+							<%}%>
+						<%});%>
+						<% if(count1==0){ %>
+							<tr>
+								<td><em>No Sellers yet.</em></td>
+							</tr>
+						<%}%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
 	</div>	
 </div>
+
+<%var count2=0%>
+<% allSeller.forEach(function(eachUser) { %>	
+	<% if(eachUser.category=="groceries"){ %>
+	<%count2=count2+1%>
+	<%}%>
+<%});%>
+	
+<div id="gros" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title">Groceries Sellers: <%=count2%> </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Sellers List:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+						<% allSeller.forEach(function(eachUser) { %>	
+							<% if(eachUser.category=="groceries"){ %>
+						<tr>
+							<td ><span class="badge"><i class="fas fa-user"></i></span> <a href="/seller/<%= eachUser._id %>"><%= eachUser.username %></a></td>
+						</tr>
+							<%}%>
+						<%});%>
+						<% if(count2==0){ %>
+							<tr>
+								<td><em>No Sellers yet.</em></td>
+							</tr>
+						<%}%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<%var count3=0%>
+<% allSeller.forEach(function(eachUser) { %>	
+	<% if(eachUser.category=="fruits"){ %>
+	<%count3=count3+1%>	
+	<%}%>
+<%});%>
+<div id="veg" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title">Fruits n Vegetables Sellers: <%=count3%> </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Sellers List:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+						<% allSeller.forEach(function(eachUser) { %>	
+							<% if(eachUser.category=="fruits"){ %>
+						<tr>
+							<td ><span class="badge"><i class="fas fa-user"></i></span> <a href="/seller/<%= eachUser._id %>"><%= eachUser.username %></a></td>
+						</tr>
+							<%}%>
+						<%});%>
+						<% if(count3==0){ %>
+							<tr>
+								<td><em>No Sellers yet.</em></td>
+							</tr>
+						<%}%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<%var count4=0%>
+<% allSeller.forEach(function(eachUser) { %>	
+	<% if(eachUser.category=="fish"){ %>
+	<%count4=count4+1%>	
+	<%}%>
+<%});%>
+<div id="fish" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                
+                <h4 class="modal-title">Fish Sellers: <%=count4%> </h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-striped">
+                    <thead>
+                    <tr>
+                        <th>Sellers List:</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+						<% allSeller.forEach(function(eachUser) { %>	
+							<% if(eachUser.category=="fish"){ %>
+						<tr>
+							<td ><span class="badge"><i class="fas fa-user"></i></span> <a href="/seller/<%= eachUser._id %>"><%= eachUser.username %></a></td>
+						</tr>
+							<%}%>
+						<%});%>
+						<% if(count4==0){ %>
+							<tr>
+								<td><em>No Sellers yet.</em></td>
+							</tr>
+						<%}%>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
 	
 
-	
 
-
-<footer class="footer">
+<footer class="footer mt-5">
 	<div class="container">
 		<div class="back-to-top">
 			<a href="#"><i class="fas fa-chevron-up"></i></a>

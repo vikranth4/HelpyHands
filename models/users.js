@@ -15,6 +15,12 @@ var userSchema = new mongoose.Schema({
 			ref: "Review"
 		}
 	],
+	cart:[
+		{
+			type: mongoose.Schema.Types.ObjectId,
+			ref: "Seller"
+		}
+	]
 });
 
 userSchema.plugin(uniqueValidator);

@@ -10,8 +10,11 @@ var express = require("express"),
 	flash = require("connect-flash"),
 	compression = require("compression");
 
+
+var Seller=require("./models/seller");
 var reviewRoutes = require("./routes/review");
 var passwordReset = require("./routes/passwordReset");
+var sellerRoutes = require("./routes/sellers");
 
 app.use(compression());
 mongoose.connect("mongodb://localhost/helpy_hands", {
@@ -48,25 +51,15 @@ app.use(function (req, res, next) {
 	next();
 });
 
-app.use(express.static(__dirname + '/public/images', {
-	maxAge: 86400000,
-	setHeaders: function (res, path) {
-		res.setHeader("Expires", new Date(Date.now() + 2592000000 * 30).toUTCString());
-	}
-}))
 
-app.get('/*', function (req, res, next) {
 
-	if (req.url.indexOf("/images/") === 0 || req.url.indexOf("/stylesheets/") === 0) {
-		res.setHeader("Cache-Control", "public, max-age=2592000");
-		res.setHeader("Expires", new Date(Date.now() + 2592000000).toUTCString());
-	}
-	next();
-});
 //============================================================================
 
-app.get("/", function (req, res) {
-	res.render("home");
+app.get("/",async function (req, res) {
+	await Seller.find({},function(err,allSeller){
+		res.render("home",{allSeller});
+	})
+	
 });
 
 //register route
@@ -102,7 +95,7 @@ app.get("/login", function (req, res) {
 app.post("/login", function (req, res, next) {
 	passport.authenticate("local",
 		{
-			successRedirect: "/reviews",
+			successRedirect: "/",
 			failureRedirect: "/login",
 			failureFlash: true,
 			successFlash: "Welcome to HelpyHands, " + req.body.username + "!"
@@ -128,7 +121,7 @@ app.get("/logout", isLoggedIn, function (req, res) {
 
 app.use(reviewRoutes);
 app.use(passwordReset);
-
+app.use(sellerRoutes)
 //=================================================================================
 app.listen(3000, function () {
 	console.log("Server started at port 3000 ");

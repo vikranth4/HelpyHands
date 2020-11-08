@@ -1,0 +1,32 @@
+<%- include("../header") %>
+<div class="container" >	
+    <% if(error && error.length>0){  %>
+    <div class="alert alert-danger" role="alert">
+        <%= error %>
+    </div>
+    <% } %> 
+    <% if(success && success.length>0){  %>
+    <div class="alert alert-success" role="alert">
+        <%= success %>
+        <% } %>
+    </div>
+</div>
+<div class="container" style="margin-top:70px">
+    <div class="row justify-content-around">
+    <% seller.products.forEach(function(product) { %>
+        <div class="col-sm-3 ">
+            <form action="/<%=seller._id%>/user/<%=user._id%>/<%=product._id%>/cart" method="post">
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top"  src="<%=product.picture%>" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title"><%=product.name%></h5>
+              <p class="card-text">Price:<%=product.price%></p>
+              <button  class="btn btn-primary">Add to cart</button>
+            </div>
+            </div>
+        </form>
+          </div>
+    <%})%>
+</div>
+</div>
+<%- include("../footer") %>
