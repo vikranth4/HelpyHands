@@ -123,6 +123,7 @@ app.use(reviewRoutes);
 app.use(passwordReset);
 app.use(sellerRoutes)
 //=================================================================================
+//listening to server
 app.listen(3000, function () {
 	console.log("Server started at port 3000 ");
 });
